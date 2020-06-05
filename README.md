@@ -1,2 +1,2 @@
-# stackhack
-hackathon
+# BandEve
+Band Eve Concert Registration
