@@ -5,15 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <link rel="stylesheet" href="{% static 'css/previewForm.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pidie-0.0.8.css' %}">
 
     <title>Band Eve Registration Form</title>
     
   <script>
     setTimeout(function () {
       $("#ms").remove();
-    }, 2000);
+    }, 8000);
   </script>
   <link rel="stylesheet" href="{% static 'css/intlTelInput.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/intlTelInput.css' %}">
@@ -28,43 +26,52 @@
           {% csrf_token %}
 
         <img id="evn" src="{% static 'img/BandEve.png' %}" alt="">
+          <!-- messages -->
+          {% if messages %}
+          {% for mes in messages %}
+          <div class="alert alert-danger" role="alert" id='ms'>
+            {{mes}}
+          </div>
+          {% endfor %}
+          {% endif %}
         <h2 id="rfp">Register for Passes</h2>
 
 
         <div class="containerx">
 	
-            <h2>Registration type: </h2>
-            
-          <ul id="ullu">
-          <li>
-            <input type="radio" id="f-option" name="regType" value="Self" required>
-            <label for="f-option">Self</label>
-            
-            <div class="check"></div>
-          </li>
-            <li>
-            <input type="radio" id="s-option" name="regType" value="Group" required>
-            <label for="s-option">Group</label>
-            
-            <div class="check"></div>
-          </li>
-                  <li>
-            <input type="radio" id="t-option" name="regType" value="Corporate" required>
-            <label for="t-option">Corporate</label>
-            
-            <div class="check"></div>
-          </li>
-                
-          <li>
-            <input type="radio" id="fo-option" name="regType" value="Others" required>
-            <label for="fo-option">Others</label>
-            
-            <div class="check"><div class="inside"></div></div>
-          </li>
+          <h2>Registration type: </h2>
           
+        <ul id="ullu">
+        <li>
+          <input type="radio" id="f-option" name="regType" value="Self" required>
+          <label  type="radio" id="f-option" name="regType" value="Self" required for="f-option">Self</label>
+        
+          <div class="check"></div>
+        </li>
+          <li>
+          <input type="radio" id="s-option" name="regType" value="Group" required>
+          <label for="s-option">Group</label>
           
-        </ul>
-        </div>
+          <div class="check"></div>
+        </li>
+                <li>
+          <input type="radio" id="t-option" name="regType" value="Corporate" required>
+          <label for="t-option">Corporate</label>
+          
+          <div class="check"></div>
+        </li>
+              
+        <li>
+          <input type="radio" id="fo-option" name="regType" value="Others" required>
+          <label for="fo-option">Others</label>
+          
+          <div class="check"><div class="inside"></div></div>
+        </li>
+        
+        
+      </ul>
+      </div>
+
 
 
         <fieldset class="form-fieldset ui-input __first">
@@ -109,22 +116,14 @@
               <div class="form-footer">
                 <button class="btn" type="submit">Get Your Pass</button>
               </div>
+              
             </form>
             
           </div>
         </div>
     
   </div>
-  <div>
-    <!-- messages -->
-    {% if messages %}
-    {% for mes in messages %}
-    <div class="alert alert-danger" role="alert" id='ms'>
-      {{mes}}
-    </div>
-    {% endfor %}
-    {% endif %}
-  </div>
+ 
   <div>
     <img id="illus" src="{% static 'img/Group.png' %}" alt="">
   </div>
@@ -278,4 +277,5 @@
 <script src="{% static '/js/isValidNumber.js' %}"></script>
 <script src="{% static '/js/utils.js' %}"></script>
 <script src="{% static '/js/number.js' %}"></script>
+<script src="{% static '/js/image.js' %}"></script>
 </html>
