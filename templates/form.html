@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
 
     <title>Band Eve Registration Form</title>
     
@@ -100,7 +100,7 @@
           </fieldset>
 
           <fieldset class="form-fieldset ui-input __first" style="z-index: 0">
-            <input type="number" required id="ticket" tabindex="0" name="ticketNo" value="1" min="1" max="25"/>
+            <input type="number" required id="ticket" tabindex="0" name="ticketNo" min="1" max="25"/>
             <label for="ticket">
               <span data-text="Number of Tickets (Not more than 25)">Number of Tickets (Not more than 25)</span>
             </label>
@@ -270,6 +270,22 @@
   $(document).ready(function () {
     $("#myform").previewForm();
   });
+</script>
+<script>
+  var radios = document.getElementsByName('regType');
+var ticket = document.getElementById('ticket');
+
+for(radio in radios) {
+    radios[radio].onclick = function() {
+      if (this.value === 'Self') {
+          ticket.value = '1';
+          ticket.readOnly = true;
+       } else {
+          ticket.value = '';
+          ticket.readOnly = false;
+       }
+    }
+}
 </script>
 <script src="{% static '/js/intlTelInput.min.js' %}"></script>
 <script src="{% static '/js/fullcountrycode.js' %}"></script>
