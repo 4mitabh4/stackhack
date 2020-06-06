@@ -18,11 +18,9 @@ def form(request):
     
     if request.method == 'POST':
         if Register.objects.filter(email=request.POST.get('email')).exists():
-                print(' email already exists')
                 messages.info(request,'email taken')
                 return redirect('/')
         if Register.objects.filter(phoneNumber=request.POST.get('phoneNumber')).exists():
-                print('phone already exists')
                 messages.info(request,'phonenumber taken')
                 return redirect('/')
         else:
@@ -57,10 +55,7 @@ def form(request):
 def otp(request, pk):
     signing.loads(pk)
     d=signing.loads(pk)
-    print()
     reg = Register.objects.get(id=d['id'])
-    print(type(reg.random))
-    print(type(request.POST.get('onetime')))
     if request.method == "POST":
         if reg.random == int(request.POST.get('onetime')):
             reg.status = True
