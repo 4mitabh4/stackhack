@@ -25,7 +25,7 @@ SECRET_KEY = 'ukhw=4rteh%u%jvl7f(twz+05)&p#@kc43mleh!a&$191hbun%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['band-eve.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -86,14 +86,20 @@ WSGI_APPLICATION = 'registrationForm.wsgi.application'
 #         'PORT':'5432'
 #     }
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME':'alpha',
+#         'USER':'root',
+#         'PASSWORD':'',
+#         'HOST':'localhost',
+#         'PORT':'3306'
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME':'alpha',
-        'USER':'root',
-        'PASSWORD':'',
-        'HOST':'localhost',
-        'PORT':'3306'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
